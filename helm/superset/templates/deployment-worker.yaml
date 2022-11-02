@@ -26,6 +26,7 @@ metadata:
 {{- if .Values.supersetWorker.deploymentAnnotations }}
   annotations:
     {{- toYaml .Values.supersetWorker.deploymentAnnotations | nindent 4 }}
+  namespace: {{ .Release.Namespace }}
 {{- end }}
 spec:
   replicas: {{ .Values.supersetWorker.replicaCount }}

@@ -27,6 +27,7 @@ metadata:
 {{- if .Values.supersetWebsockets.deploymentAnnotations }}
   annotations:
     {{- toYaml .Values.supersetWebsockets.deploymentAnnotations | nindent 4 }}
+  namespace: {{ .Release.Namespace }}
 {{- end }}
 spec:
   replicas: {{ .Values.supersetWebsockets.replicaCount }}
